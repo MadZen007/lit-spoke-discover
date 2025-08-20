@@ -1,0 +1,21 @@
+{
+  "name": "lit-spoke-discover",
+  "version": "1.0.0",
+  "description": "LoveIsTough Personality Quiz Spoke",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "start": "vercel start",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["personality", "quiz", "loveistough"],
+  "author": "LoveIsTough Team",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/node": "^3.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Your Dating Type • LoveIsTough</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://discover.loveistough.com/" />
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="https://www.loveistough.com">
+                    <img src="images/logo.png" alt="LoveIsTough Logo" class="main-logo">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="form-container">
+        <div class="quiz-container">
+            <h1 class="quiz-title">Discover Your Dating Type</h1>
+            <p class="quiz-description">Answer 10 brutally honest questions to unlock your personalized dating personality profile.</p>
+            
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Question 1 of 10</p>
+            </div>
+
+            <form id="personalityQuiz">
+                <!-- Questions will be dynamically generated -->
+                <div id="questionContainer"></div>
+                
+                <div class="form-actions">
+                    <button type="button" id="prevBtn" class="btn-secondary" style="display: none;">Previous</button>
+                    <button type="button" id="nextBtn" class="btn-primary">Next</button>
+                    <button type="submit" id="submitBtn" class="btn-primary" style="display: none;">Submit Quiz</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
