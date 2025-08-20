@@ -145,22 +145,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group label {
     display: block;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
     font-family: var(--font-header);
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: var(--white);
+    line-height: 1.3;
+    text-align: center;
+    font-weight: 700;
 }
 
 .form-group select {
     width: 100%;
-    padding: var(--spacing-sm);
-    border-radius: 8px;
+    padding: var(--spacing-md);
+    border-radius: 12px;
     border: 2px solid var(--slate-gray);
     background: #0a0a0a;
-    color: var(--slate-gray);
+    color: var(--white);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: var(--transition-normal);
+    text-align: center;
 }
 
 .form-group select:focus {
@@ -224,5 +228,15 @@ h1, h2, h3, h4, h5, h6 {
     
     .quiz-title {
         font-size: 2rem;
+    }
+    
+    .form-group label {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .form-group select {
+        font-size: 1.1rem;
+        padding: var(--spacing-sm);
     }
 }
