@@ -282,6 +282,9 @@ class PersonalityQuiz {
                 </select>
             </div>
         `;
+        
+        // Update navigation buttons to show correct button for current question
+        this.updateNavigationButtons();
     }
 
     updateProgress() {
@@ -331,9 +334,18 @@ class PersonalityQuiz {
     updateNavigationButtons() {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
         
         prevBtn.style.display = this.currentQuestion > 0 ? 'inline-block' : 'none';
-        nextBtn.style.display = this.currentQuestion < quizQuestions.length - 1 ? 'inline-block' : 'none';
+        
+        if (this.currentQuestion === quizQuestions.length - 1) {
+            // On the last question, show submit button instead of next button
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'inline-block';
+        } else {
+            nextBtn.style.display = 'inline-block';
+            submitBtn.style.display = 'none';
+        }
     }
 
     showSubmitButton() {
