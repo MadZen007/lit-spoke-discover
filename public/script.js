@@ -167,7 +167,7 @@ const personalityTypes = [
     {
         id: "ghosting-expert",
         title: "The Ghosting Expert",
-        image: "images/personality-ghosting.png",
+        image: "images/ghosting-expert.png",
         description: "You're a master of the Irish Goodbye, vanishing from conversations and relationships without a trace. You crave the illusion of connection, but the reality of intimacy terrifies you. You prefer to keep people at arm's length, and you're always ready to bolt at the first sign of commitment. You're the dating world's equivalent of a shooting star: beautiful and fleeting, but ultimately leaving everyone wondering what the hell just happened.",
         idealPartner: "Someone equally independent and low-maintenance who won't demand too much attention or emotional investment. They need to be comfortable with long periods of silence and understand that your absence doesn't necessarily mean you don't care (it probably just means you're binge-watching something and forgot to text back).",
         redFlags: "Anyone who uses the word 'soulmate,' talks about 'forever,' or starts planning your wedding after the first date. Basically, anyone who shows any signs of wanting a real relationship. Also, avoid anyone who's overly sensitive or needs constant reassurance. They'll just drain your already limited emotional reserves.",
