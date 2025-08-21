@@ -336,13 +336,17 @@ class PersonalityQuiz {
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
         
+        console.log('Current question:', this.currentQuestion, 'Total questions:', quizQuestions.length);
+        
         prevBtn.style.display = this.currentQuestion > 0 ? 'inline-block' : 'none';
         
         if (this.currentQuestion === quizQuestions.length - 1) {
             // On the last question, show submit button instead of next button
+            console.log('On last question - showing submit button');
             nextBtn.style.display = 'none';
             submitBtn.style.display = 'inline-block';
         } else {
+            console.log('Not on last question - showing next button');
             nextBtn.style.display = 'inline-block';
             submitBtn.style.display = 'none';
         }
