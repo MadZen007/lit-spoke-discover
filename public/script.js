@@ -428,7 +428,7 @@ class PersonalityQuiz {
                 
                 <div class="personality-result">
                     <div class="result-image">
-                        <img src="${personalityType.image}" alt="${personalityType.title}" onerror="this.src='images/personality-placeholder.png'">
+                        <img src="${personalityType.image}" alt="${personalityType.title}" onerror="this.style.display='none'">
                     </div>
                     
                     <div class="result-content">
