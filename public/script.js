@@ -1,4 +1,4 @@
-console.log('Script loaded!');
+console.log('Script loaded! - Debug version - Force deployment');
 
 const quizQuestions = [
     {
@@ -94,7 +94,7 @@ const quizQuestions = [
             "Being 'too intellectual'",
             "Being 'too sensitive'",
             "Being 'too laid-back'",
-            "Being 'too [insert your most prominent personality trait here]'"
+            "Being 'too distant'"
         ]
     },
     {
@@ -135,7 +135,7 @@ const quizQuestions = [
         options: [
             "The slow fade",
             "The 'it's not you, it's me' speech",
-            "The ghost",
+            "Just never reply again...ever",
             "The sudden and dramatic breakup",
             "The mutual agreement (that was actually your idea)",
             "The passive-aggressive campaign until they break up with you",
@@ -239,7 +239,7 @@ const personalityTypes = [
     {
         id: "ex-obsessive",
         title: "The 'I Hate My Ex' Obsessive",
-        image: "images/personality-ex.png",
+        image: "images/personality-placeholder.png",
         description: "Your ex is always on your mind and you're always plotting to burn their house down! Just kidding.. unless? You won't stop talking about it and likely won't move on. You likely have issues and haven't come to terms.",
         idealPartner: "People with similar baggage. It takes one to know one. Hopefully you won't hurt each other and move on.",
         redFlags: "People who remind you of your ex, or want to fix you.",
@@ -479,16 +479,22 @@ class PersonalityQuiz {
     submitQuiz(e) {
         e.preventDefault();
         
+        console.log('Submit button clicked!');
+        
         // Get final answer
         const currentSelect = document.getElementById(`question${quizQuestions[this.currentQuestion].id}`);
         this.answers[this.currentQuestion] = parseInt(currentSelect.value);
+        
+        console.log('Final answer saved:', this.answers[this.currentQuestion]);
         
         // Show loading screen
         this.showLoadingScreen();
         
         // Simulate processing time
         setTimeout(() => {
+            console.log('Processing answers...');
             const personalityType = this.calculatePersonalityType();
+            console.log('Personality type calculated:', personalityType.title);
             this.showResults(personalityType);
         }, 2500); // 2.5 seconds
     }
