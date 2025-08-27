@@ -528,20 +528,42 @@ function shareToFacebook(title, description) {
 function copyToClipboard(title, description) {
     const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 100)}... ${window.location.href}`;
     
-    if (navigator.clipboard) {
+    // Try the modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
             alert('Link copied to clipboard!');
+        }).catch(() => {
+            // If clipboard API fails, use fallback
+            fallbackCopyToClipboard(text);
         });
     } else {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('Link copied to clipboard!');
+        // Use fallback for older browsers or non-secure contexts
+        fallbackCopyToClipboard(text);
     }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            alert('Link copied to clipboard!');
+        } else {
+            alert('Failed to copy. Please manually copy this link: ' + text);
+        }
+    } catch (err) {
+        alert('Failed to copy. Please manually copy this link: ' + text);
+    }
+    
+    document.body.removeChild(textArea);
 }
 
 // Initialize quiz when page loads
