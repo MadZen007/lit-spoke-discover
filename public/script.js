@@ -176,7 +176,7 @@ const personalityTypes = [
     {
         id: "serial-dater",
         title: "The Serial Dater",
-        image: "images/personality-serial.png",
+        image: "images/serial-dater.jpg",
         description: "You're a dating app connoisseur, always swiping right on the newest faces and chasing the thrill of the first date. You're not necessarily afraid of commitment, but you are afraid of settling for the wrong person. You believe that there's always someone better out there, and you're determined to find them (even if it means going on hundreds of mediocre dates in the process). You're the dating world's equivalent of a buffet enthusiast: always sampling everything but never quite satisfied.",
         idealPartner: "Someone who's as adventurous and open-minded as you are. They need to be comfortable with trying new things and going with the flow. Bonus points if they have a packed social calendar and are always up for a spontaneous weekend getaway.",
         redFlags: "Anyone who's overly possessive or jealous, tries to control your schedule, or expects you to be their sole source of entertainment. Also, avoid anyone who's stuck in their ways or resistant to trying new things. They'll just cramp your style and make you feel suffocated.",
@@ -185,7 +185,7 @@ const personalityTypes = [
     {
         id: "netflix-chill",
         title: "The 'Netflix and Chill' Enthusiast",
-        image: "images/personality-netflix.png",
+        image: "images/netflix-chill.png",
         description: "Why bother with fancy dinners and awkward small talk when you can just cut to the chase? Your ideal date involves sweatpants, pizza, and a good streaming service. You're all about efficiency and minimal effort, and you're not ashamed to admit it. You're basically the dating world's equivalent of a microwave dinner: quick, easy, and satisfying (in a slightly depressing way).",
         idealPartner: "Someone who's equally chill and low-key, doesn't mind spending most of their time indoors, and has a good selection of streaming services. They should also be comfortable with the occasional awkward silence and not expect deep conversations every time you hang out.",
         redFlags: "Anyone who insists on going out all the time, has a strict 'no phones' policy during dates, or tries to force you to have deep and meaningful conversations about your childhood trauma. Also, avoid anyone who judges your taste in movies or complains about your apartment being messy.",
@@ -194,7 +194,7 @@ const personalityTypes = [
     {
         id: "conspiracy-theorist",
         title: "The Conspiracy Theorist",
-        image: "images/personality-conspiracy.png",
+        image: "images/conspiracy.png",
         description: "You believe the government is spying on you, aliens are real, and dating apps are controlled by robots. You're convinced that the truth is out there, and you're determined to find it (even if it means alienating everyone around you and building a bunker in your backyard). You're basically the dating world's equivalent of Fox Mulder, except less charming and more likely to wear a tinfoil hat on the first date and try to convince you that the Earth is flat.",
         idealPartner: "Someone who's either equally paranoid and delusional or incredibly patient and tolerant. They need to be able to listen to your conspiracy theories without judgment and gently steer you away from the really crazy stuff. Bonus points if they have a good sense of humor and can laugh along with your eccentricities (instead of running for the hills).",
         redFlags: "Anyone who works for the government, believes in science, or tries to debunk your conspiracy theories. Also, avoid anyone who's overly judgmental or tries to control your behavior. They'll just stifle your creativity and make you feel like you can't be yourself (which, let's be honest, might be a good thing).",
@@ -203,7 +203,7 @@ const personalityTypes = [
     {
         id: "pollyanna",
         title: "The 'Annoyingly Positive' Pollyanna",
-        image: "images/personality-pollyanna.png",
+        image: "images/pollyanna.png",
         description: "You see the best in everyone, even on dating apps. Your optimism is admirable... and slightly unsettling. You're basically the dating world's equivalent of a unicorn: rare, magical, and probably too good to be true. Do you even have any flaws, or are you just pretending to be human to blend in?",
         idealPartner: "Someone who appreciates your positivity and can balance it with a healthy dose of realism (or cynicism). They need to be able to handle your boundless enthusiasm without feeling overwhelmed and gently bring you back down to earth when you're floating too high.",
         redFlags: "Anyone who's constantly negative, complains about everything, or tries to rain on your parade. Also, avoid anyone who's emotionally unavailable or dismissive of your feelings. They'll just drain your energy and make you question your entire existence.",
@@ -212,7 +212,7 @@ const personalityTypes = [
     {
         id: "catfishing-master",
         title: "The Catfishing Master",
-        image: "images/personality-catfish.png",
+        image: "images/catfish.png",
         description: "You're a master of disguise, creating online personas that are too good to be true. You're insecure, and likely afraid to be vulnerable. But be careful, your lies might eventually catch up to you, and there is a special place in hell for your type.",
         idealPartner: "Someone who doesn't exist, because you are lying.",
         redFlags: "Everyone. If you are catfishing someone, nothing here matters.",
@@ -221,7 +221,7 @@ const personalityTypes = [
     {
         id: "reluctant-dater",
         title: "The Reluctant Dater (Forced by Friends)",
-        image: "images/personality-reluctant.png",
+        image: "images/reluctant.png",
         description: "You have been railroaded! Your friends are evil, now you have to navigate the murky waters of the digital dating game. Prepare yourself for rejection, bots, and conversations that go nowhere... It is okay, you are not alone!",
         idealPartner: "Someone who understands that you are on a limited trial run. It may happen. Be a kind and sensitive soul that'll allow you to see the good of it all.",
         redFlags: "People who think you need to be fixed, or have you get a therapist because you don't want to be there.",
