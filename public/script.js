@@ -1,4 +1,4 @@
-console.log('Script loaded! - Debug version - Force deployment');
+console.log('Script loaded! - Debug version - Force deployment - Fixed image references');
 
 const quizQuestions = [
     {
@@ -495,6 +495,7 @@ class PersonalityQuiz {
             console.log('Processing answers...');
             const personalityType = this.calculatePersonalityType();
             console.log('Personality type calculated:', personalityType.title);
+            console.log('Personality image path:', personalityType.image);
             this.showResults(personalityType);
         }, 2500); // 2.5 seconds
     }
