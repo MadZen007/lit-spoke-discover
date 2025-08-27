@@ -325,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 .result-section p {
     font-family: var(--font-header);
     font-size: 1.1rem;
-    color: var(--slate-gray);
+    color: var(--white);
     line-height: 1.6;
     margin: 0;
 }
