@@ -230,7 +230,7 @@ const personalityTypes = [
     {
         id: "existential-dread",
         title: "The Existential Dread-er",
-        image: "images/personality-existential.png",
+        image: "images/personality-placeholder.png",
         description: "You know the world is going to end, it is just a matter of when, you're tired of the day-to-day. You seek someone just to simply talk to, for a short period. It is a void, there are no answers, but we can try right? We'll have a coffee and talk about it until one of us dies or stops talking.",
         idealPartner: "Someone who is able to cope with your world view, while being able to be empathetic. Someone who is able to find the joy in everything, while acknowledging and being able to talk about the true end coming.",
         redFlags: "People who think that you need to find god, or don't let you vent. People who are dismissive, and want to change your opinions for their own agenda.",
@@ -248,7 +248,7 @@ const personalityTypes = [
     {
         id: "clingy-aware",
         title: "The 'Clingy But Self-Aware' Attachment Seeker",
-        image: "images/personality-clingy.png",
+        image: "images/personality-placeholder.png",
         description: "You know you're clingy, you embrace it, and you're probably already planning our wedding in your head (even though we haven't met yet). You're terrified of being alone, and you're not afraid to show it (maybe a little too much). You're basically the dating world's equivalent of a Velcro suit: you attach yourself to people and never let go (even when they desperately want you to).",
         idealPartner: "Someone who's patient, understanding, and genuinely enjoys receiving attention and affection. They need to be able to handle your occasional bouts of insecurity and reassure you that they're not going anywhere (even when you're being extra needy). A strong sense of self-confidence and a healthy dose of independence are also essential, as they'll need to be able to set boundaries without making you feel rejected.",
         redFlags: "Anyone who's emotionally unavailable, aloof, or commitment-phobic. Also, avoid anyone who's passive-aggressive, gaslights you, or makes you feel like your needs are a burden. They'll just trigger your abandonment issues and send you spiraling into a vortex of self-doubt and despair.",
