@@ -424,6 +424,9 @@ class PersonalityQuiz {
         console.log('Container element:', container);
         console.log('Form element:', form);
         
+        // Make the form visible again so the results can be seen
+        form.style.display = 'block';
+        
         container.innerHTML = `
             <div class="results-container">
                 <div class="results-header">
