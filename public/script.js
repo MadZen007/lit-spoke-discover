@@ -419,6 +419,12 @@ class PersonalityQuiz {
         // Make the form visible again so the results can be seen
         form.style.display = 'block';
         
+        // Hide the navigation buttons and return home section
+        const formActions = document.querySelector('.form-actions');
+        const returnHomeSection = document.querySelector('.return-home-section');
+        if (formActions) formActions.style.display = 'none';
+        if (returnHomeSection) returnHomeSection.style.display = 'none';
+        
         container.innerHTML = `
             <div class="results-container">
                 <div class="results-header">
