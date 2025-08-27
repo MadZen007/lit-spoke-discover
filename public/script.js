@@ -338,17 +338,13 @@ class PersonalityQuiz {
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
         
-        console.log('Current question:', this.currentQuestion, 'Total questions:', quizQuestions.length);
-        
         prevBtn.style.display = this.currentQuestion > 0 ? 'inline-block' : 'none';
         
         if (this.currentQuestion === quizQuestions.length - 1) {
             // On the last question, show submit button instead of next button
-            console.log('On last question - showing submit button');
             nextBtn.style.display = 'none';
             submitBtn.style.display = 'inline-block';
         } else {
-            console.log('Not on last question - showing next button');
             nextBtn.style.display = 'inline-block';
             submitBtn.style.display = 'none';
         }
@@ -417,12 +413,8 @@ class PersonalityQuiz {
     }
 
     showResults(personalityType) {
-        console.log('showResults called with:', personalityType);
         const container = document.getElementById('questionContainer');
         const form = document.getElementById('personalityQuiz');
-        
-        console.log('Container element:', container);
-        console.log('Form element:', form);
         
         // Make the form visible again so the results can be seen
         form.style.display = 'block';
@@ -458,46 +450,32 @@ class PersonalityQuiz {
                     </div>
                 </div>
                 
-                <div class="share-section">
-                    <h3>Share Your Results</h3>
-                    <p>Let the world know what kind of dating disaster you are!</p>
-                    
-                    <div class="share-buttons">
-                        <button class="share-btn twitter" onclick="shareToTwitter('${personalityType.title}', '${personalityType.description}')">
-                            Share on Twitter
-                        </button>
-                        <button class="share-btn facebook" onclick="shareToFacebook('${personalityType.title}', '${personalityType.description}')">
-                            Share on Facebook
-                        </button>
-                        <button class="share-btn copy" onclick="copyToClipboard('${personalityType.title}', '${personalityType.description}')">
-                            Copy Link
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="retake-section">
-                    <button class="btn-primary" onclick="location.reload()">Take Quiz Again</button>
-                    <a href="https://www.loveistough.com" class="btn-secondary">Back to LoveIsTough</a>
-                </div>
+                                 <div class="share-section">
+                     <h3>Share Your Results</h3>
+                     <p>Let the world know what kind of dating disaster you are!</p>
+                     
+                     <div class="share-buttons">
+                         <button class="share-btn" onclick="shareResults('${personalityType.title}', '${personalityType.description}')">
+                             Share
+                         </button>
+                     </div>
+                 </div>
+                 
+                 <div class="retake-section">
+                     <button class="btn-primary" onclick="location.reload()">Take Quiz Again</button>
+                     <a href="https://www.loveistough.com" class="btn-secondary">Return to Homepage</a>
+                 </div>
             </div>
         `;
-        
-        console.log('Results HTML set, container innerHTML length:', container.innerHTML.length);
-        console.log('Form display style:', form.style.display);
     }
 
     submitQuiz(e) {
         e.preventDefault();
         
-        console.log('Submit button clicked!');
-        
         // Get final answer - add null check
         const currentSelect = document.getElementById(`question${quizQuestions[this.currentQuestion].id}`);
         if (currentSelect && currentSelect.value) {
             this.answers[this.currentQuestion] = parseInt(currentSelect.value);
-            console.log('Final answer saved:', this.answers[this.currentQuestion]);
-        } else {
-            console.log('No final answer found, using previous answers');
         }
         
         // Show loading screen
@@ -505,47 +483,31 @@ class PersonalityQuiz {
         
         // Simulate processing time
         setTimeout(() => {
-            console.log('Processing answers...');
             const personalityType = this.calculatePersonalityType();
-            console.log('Personality type calculated:', personalityType.title);
-            console.log('Personality image path:', personalityType.image);
             this.showResults(personalityType);
         }, 2500); // 2.5 seconds
     }
 }
 
-// Social media sharing functions
-function shareToTwitter(title, description) {
-    const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 100)}...`;
-    const url = window.location.href;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-    window.open(twitterUrl, '_blank');
-}
-
-function shareToFacebook(title, description) {
-    const url = window.location.href;
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(facebookUrl, '_blank');
-}
-
-function copyToClipboard(title, description) {
+// Simple share function
+function shareResults(title, description) {
     const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 100)}... ${window.location.href}`;
     
     // Try the modern clipboard API first
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-            alert('Link copied to clipboard!');
+            alert('You have now copied the link to share anywhere you like!');
         }).catch(() => {
             // If clipboard API fails, use fallback
-            fallbackCopyToClipboard(text);
+            fallbackShare(text);
         });
     } else {
         // Use fallback for older browsers or non-secure contexts
-        fallbackCopyToClipboard(text);
+        fallbackShare(text);
     }
 }
 
-function fallbackCopyToClipboard(text) {
+function fallbackShare(text) {
     const textArea = document.createElement('textarea');
     textArea.value = text;
     textArea.style.position = 'fixed';
@@ -558,7 +520,7 @@ function fallbackCopyToClipboard(text) {
     try {
         const successful = document.execCommand('copy');
         if (successful) {
-            alert('Link copied to clipboard!');
+            alert('You have now copied the link to share anywhere you like!');
         } else {
             alert('Failed to copy. Please manually copy this link: ' + text);
         }
