@@ -417,8 +417,12 @@ class PersonalityQuiz {
     }
 
     showResults(personalityType) {
+        console.log('showResults called with:', personalityType);
         const container = document.getElementById('questionContainer');
         const form = document.getElementById('personalityQuiz');
+        
+        console.log('Container element:', container);
+        console.log('Form element:', form);
         
         container.innerHTML = `
             <div class="results-container">
@@ -474,6 +478,9 @@ class PersonalityQuiz {
                 </div>
             </div>
         `;
+        
+        console.log('Results HTML set, container innerHTML length:', container.innerHTML.length);
+        console.log('Form display style:', form.style.display);
     }
 
     submitQuiz(e) {
