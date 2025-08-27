@@ -491,11 +491,14 @@ class PersonalityQuiz {
         
         console.log('Submit button clicked!');
         
-        // Get final answer
+        // Get final answer - add null check
         const currentSelect = document.getElementById(`question${quizQuestions[this.currentQuestion].id}`);
-        this.answers[this.currentQuestion] = parseInt(currentSelect.value);
-        
-        console.log('Final answer saved:', this.answers[this.currentQuestion]);
+        if (currentSelect && currentSelect.value) {
+            this.answers[this.currentQuestion] = parseInt(currentSelect.value);
+            console.log('Final answer saved:', this.answers[this.currentQuestion]);
+        } else {
+            console.log('No final answer found, using previous answers');
+        }
         
         // Show loading screen
         this.showLoadingScreen();
