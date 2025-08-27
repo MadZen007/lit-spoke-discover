@@ -293,7 +293,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .result-image img {
-    max-width: 200px;
+    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 12px;
     border: 2px solid var(--slate-gray);
@@ -313,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .result-section h3 {
-    font-family: var(--font-header);
+    font-family: var(--font-body);
     font-size: 1.5rem;
     color: var(--white);
     margin-bottom: var(--spacing-sm);
@@ -322,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .result-section p {
-    font-family: var(--font-body);
+    font-family: var(--font-header);
     font-size: 1.1rem;
     color: var(--slate-gray);
     line-height: 1.6;
