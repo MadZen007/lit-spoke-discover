@@ -430,7 +430,7 @@ class PersonalityQuiz {
         container.innerHTML = `
             <div class="results-container">
                 <div class="results-header">
-                    <h2>Um... wow... ok. Here are the results, but don't blame us.</h2>
+                    <h2>Um... wow... ok.<br>Here are the results...<br>but don't blame us!</h2>
                 </div>
                 
                 <div class="personality-result">
