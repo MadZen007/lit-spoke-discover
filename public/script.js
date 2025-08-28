@@ -579,7 +579,7 @@ class PersonalityQuiz {
                      <p>Let the world know what kind of dating disaster you are!</p>
                      
                      <div class="share-buttons">
-                         <button class="share-btn" onclick="shareResults('${personalityType.title}', '${personalityType.description}')">
+                         <button class="share-btn" id="shareBtn">
                              Share
                          </button>
                      </div>
@@ -591,6 +591,11 @@ class PersonalityQuiz {
                  </div>
             </div>
         `;
+        
+        // Add event listener for share button
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            shareResults(personalityType.title, personalityType.description);
+        });
     }
 
     submitQuiz(e) {
