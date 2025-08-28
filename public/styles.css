@@ -222,12 +222,12 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-left: auto;
 }
 
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+/* Force Next button to right side */
+#nextBtn, #submitBtn {
+    margin-left: auto;
 }
 
 .return-home-section {
