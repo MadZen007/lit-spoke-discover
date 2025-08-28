@@ -212,6 +212,18 @@ h1, h2, h3, h4, h5, h6 {
     /* Force deployment - Next button positioning */
 }
 
+/* Explicit button positioning */
+#prevBtn {
+    order: 1;
+}
+
+.form-actions {
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .form-actions {
     display: flex;
     justify-content: flex-end;
