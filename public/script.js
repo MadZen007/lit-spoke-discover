@@ -356,27 +356,145 @@ class PersonalityQuiz {
     }
 
     calculatePersonalityType() {
-        // Simple scoring system based on answer patterns
-        const scores = {};
-        
+        // Direct answer mapping system for balanced distribution
+        const answerMapping = {
+            // GHOSTING EXPERT (10 answers)
+            "1_6": { "ghosting-expert": 3, "netflix-chill": 1 },       // Someone to watch trashy TV with
+            "2_3": { "ghosting-expert": 3, "ex-obsessive": 1 },        // Sharp wit (biting sarcasm)
+            "2_4": { "ghosting-expert": 3, "reluctant-dater": 1 },     // Strong independent streak
+            "3_0": { "ghosting-expert": 3, "reluctant-dater": 1 },     // Pretend it didn't happen
+            "4_2": { "ghosting-expert": 3, "ex-obsessive": 1 },        // Sarcastic jokes
+            "4_3": { "ghosting-expert": 3, "reluctant-dater": 1 },     // The silent treatment
+            "4_6": { "ghosting-expert": 3, "reluctant-dater": 1 },     // Avoidance
+            "4_8": { "ghosting-expert": 3, "ex-obsessive": 1 },        // Honest (but brutal) honesty
+            "4_9": { "ghosting-expert": 3, "reluctant-dater": 1 },     // Subtle hints that go unnoticed
+            "5_1": { "ghosting-expert": 3, "reluctant-dater": 1 },     // Annoying habits
+
+            // CLINGY AWARE (10 answers)
+            "1_1": { "clingy-aware": 3, "ex-obsessive": 1 },           // A personal therapist
+            "1_7": { "clingy-aware": 3, "pollyanna": 1 },              // A live-in pet sitter
+            "1_9": { "clingy-aware": 3, "catfishing-master": 1 },      // Someone to validate your existence
+            "2_0": { "clingy-aware": 3, "ex-obsessive": 1 },           // Intense passion (borders on obsession)
+            "2_8": { "clingy-aware": 3, "ex-obsessive": 1 },           // Artistic temperament
+            "3_1": { "clingy-aware": 3, "ex-obsessive": 1 },           // Obsessively analyze profile
+            "3_4": { "clingy-aware": 3, "ex-obsessive": 1 },           // Question your self-worth
+            "3_5": { "clingy-aware": 3, "ex-obsessive": 1 },           // Eat entire tub of ice cream
+            "3_8": { "clingy-aware": 3, "ex-obsessive": 1 },           // Seek validation from strangers
+            "4_4": { "clingy-aware": 3, "ex-obsessive": 1 },           // Rambling text messages
+
+            // EX-OBSESSIVE (10 answers)
+            "1_3": { "ex-obsessive": 3, "clingy-aware": 1 },           // Someone to blame when things go wrong
+            "1_8": { "ex-obsessive": 3, "clingy-aware": 1 },           // Proof you're not unlovable
+            "3_2": { "ex-obsessive": 3, "clingy-aware": 1 },           // Write scathing review online
+            "3_6": { "ex-obsessive": 3, "clingy-aware": 1 },           // Blame your ex
+            "3_9": { "ex-obsessive": 3, "clingy-aware": 1 },           // Get drunk and send rambling text
+            "4_0": { "ex-obsessive": 3, "clingy-aware": 1 },           // Passive-aggressive sticky notes
+            "4_5": { "ex-obsessive": 3, "clingy-aware": 1 },           // Emotional outbursts
+            "5_6": { "ex-obsessive": 3, "clingy-aware": 1 },           // Controlling behavior
+            "6_1": { "ex-obsessive": 3, "ghosting-expert": 1 },        // Being 'too honest'
+            "6_3": { "ex-obsessive": 3, "ghosting-expert": 1 },        // Being 'too sarcastic'
+
+            // SERIAL DATER (10 answers)
+            "1_4": { "serial-dater": 3, "netflix-chill": 1 },          // A free meal ticket
+            "2_1": { "serial-dater": 3, "netflix-chill": 1 },          // Devil-may-care attitude
+            "2_2": { "serial-dater": 3, "ghosting-expert": 1 },        // Constant need for excitement
+            "2_6": { "serial-dater": 3, "conspiracy-theorist": 1 },    // Unconventional lifestyle
+            "3_3": { "serial-dater": 3, "reluctant-dater": 1 },        // Lower your standards
+            "5_4": { "serial-dater": 3, "netflix-chill": 1 },          // Lack of intelligence
+            "6_2": { "serial-dater": 3, "clingy-aware": 1 },           // Being 'too ambitious'
+            "6_5": { "serial-dater": 3, "ghosting-expert": 1 },        // Being 'too adventurous'
+            "10_1": { "serial-dater": 3, "ghosting-expert": 1 },       // 'It's Always Sunny in Philadelphia'
+            "10_3": { "serial-dater": 3, "ghosting-expert": 1 },       // 'Arrested Development'
+
+            // EXISTENTIAL DREAD (10 answers)
+            "1_5": { "existential-dread": 3, "reluctant-dater": 1 },   // A co-signer for crippling debt
+            "2_5": { "existential-dread": 3, "conspiracy-theorist": 1 }, // Creative mind (easily distracted)
+            "2_7": { "existential-dread": 3, "conspiracy-theorist": 1 }, // History of 'bad luck'
+            "4_1": { "existential-dread": 3, "conspiracy-theorist": 1 }, // Cryptic song lyrics
+            "5_5": { "existential-dread": 3, "reluctant-dater": 1 },   // Different values
+            "5_7": { "existential-dread": 3, "reluctant-dater": 1 },   // Addiction issues
+            "5_9": { "existential-dread": 3, "conspiracy-theorist": 1 }, // Fear of clowns
+            "6_4": { "existential-dread": 3, "conspiracy-theorist": 1 }, // Being 'too logical'
+            "10_0": { "existential-dread": 3, "reluctant-dater": 1 },  // 'Curb Your Enthusiasm'
+            "10_5": { "existential-dread": 3, "reluctant-dater": 1 },  // 'BoJack Horseman'
+
+            // RELUCTANT DATER (10 answers)
+            "1_2": { "reluctant-dater": 3, "existential-dread": 1 },   // A human shield against family judgment
+            "3_7": { "reluctant-dater": 3, "existential-dread": 1 },   // Vow to never date again
+            "5_2": { "reluctant-dater": 3, "ghosting-expert": 1 },     // Clinginess
+            "5_3": { "reluctant-dater": 3, "ghosting-expert": 1 },     // Emotional unavailability
+            "6_0": { "reluctant-dater": 3, "ghosting-expert": 1 },     // Being 'too independent'
+            "6_9": { "reluctant-dater": 3, "ghosting-expert": 1 },     // Being 'too distant'
+            "9_0": { "reluctant-dater": 3, "ghosting-expert": 1 },     // The slow fade
+            "9_1": { "reluctant-dater": 3, "ghosting-expert": 1 },     // The 'it's not you, it's me' speech
+            "9_2": { "reluctant-dater": 3, "ghosting-expert": 1 },     // Just never reply again...ever
+            "9_4": { "reluctant-dater": 3, "ghosting-expert": 1 },     // The mutual agreement (your idea)
+
+            // CONSPIRACY THEORIST (10 answers)
+            "2_9": { "conspiracy-theorist": 3, "ghosting-expert": 1 }, // Mysterious aura (dark secret)
+            "4_7": { "conspiracy-theorist": 3, "clingy-aware": 1 },    // Mind-reading (attempted)
+            "5_8": { "conspiracy-theorist": 3, "existential-dread": 1 }, // Criminal record
+            "6_6": { "conspiracy-theorist": 3, "existential-dread": 1 }, // Being 'too intellectual'
+            "7_0": { "conspiracy-theorist": 3, "pollyanna": 1 },       // There's someone out there for everyone
+            "7_1": { "conspiracy-theorist": 3, "pollyanna": 1 },       // Love conquers all
+            "7_2": { "conspiracy-theorist": 3, "clingy-aware": 1 },    // You only need one great love
+            "7_3": { "conspiracy-theorist": 3, "clingy-aware": 1 },    // Love is enough
+            "10_6": { "conspiracy-theorist": 3, "existential-dread": 1 }, // 'The Twilight Zone'
+            "10_7": { "conspiracy-theorist": 3, "existential-dread": 1 }, // 'Black Mirror'
+
+            // NETFLIX & CHILL (10 answers)
+            "1_0": { "netflix-chill": 3, "pollyanna": 1 },             // Someone who laughs at all your jokes
+            "5_0": { "netflix-chill": 3, "serial-dater": 1 },          // Bad hygiene
+            "6_8": { "netflix-chill": 3, "ghosting-expert": 1 },       // Being 'too laid-back'
+            "7_4": { "netflix-chill": 3, "clingy-aware": 1 },          // You'll just know when you've found 'the one'
+            "7_5": { "netflix-chill": 3, "clingy-aware": 1 },          // Love is always easy
+            "7_6": { "netflix-chill": 3, "clingy-aware": 1 },          // Love lasts forever
+            "7_7": { "netflix-chill": 3, "clingy-aware": 1 },          // Your soulmate is actively looking for you
+            "7_8": { "netflix-chill": 3, "ex-obsessive": 1 },          // Love can fix your problems
+            "7_9": { "netflix-chill": 3, "ex-obsessive": 1 },          // You can't live without love
+            "8_0": { "netflix-chill": 3, "clingy-aware": 1 },          // Being judged
+
+            // POLLYANNA (10 answers)
+            "8_1": { "pollyanna": 3, "ghosting-expert": 1 },           // Being rejected
+            "8_2": { "pollyanna": 3, "ex-obsessive": 1 },              // Being hurt
+            "8_3": { "pollyanna": 3, "clingy-aware": 1 },              // Being vulnerable
+            "8_4": { "pollyanna": 3, "clingy-aware": 1 },              // Being exposed
+            "8_5": { "pollyanna": 3, "ex-obsessive": 1 },              // Being taken advantage of
+            "8_6": { "pollyanna": 3, "ghosting-expert": 1 },           // Being seen as weak
+            "8_7": { "pollyanna": 3, "clingy-aware": 1 },              // Being misunderstood
+            "8_8": { "pollyanna": 3, "ex-obsessive": 1 },              // Being pitied
+            "8_9": { "pollyanna": 3, "ghosting-expert": 1 },           // Being a burden
+            "10_2": { "pollyanna": 3, "existential-dread": 1 },        // 'The Office'
+
+            // CATFISHING MASTER (10 answers)
+            "9_3": { "catfishing-master": 3, "clingy-aware": 1 },      // The sudden and dramatic breakup
+            "9_5": { "catfishing-master": 3, "clingy-aware": 1 },      // Passive-aggressive campaign
+            "9_6": { "catfishing-master": 3, "reluctant-dater": 1 },   // The 'let's just be friends' (don't mean)
+            "9_7": { "catfishing-master": 3, "reluctant-dater": 1 },   // The disappearing act
+            "9_8": { "catfishing-master": 3, "reluctant-dater": 1 },   // The 'I need space' excuse
+            "9_9": { "catfishing-master": 3, "ex-obsessive": 1 },      // The honest (but brutal) truth
+            "10_4": { "catfishing-master": 3, "ex-obsessive": 1 },     // 'Fleabag'
+            "10_8": { "catfishing-master": 3, "reluctant-dater": 1 },  // 'Six Feet Under'
+            "10_9": { "catfishing-master": 3, "reluctant-dater": 1 },  // 'The Walking Dead'
+            "5_2": { "catfishing-master": 3, "ghosting-expert": 1 }    // Clinginess (reassigned)
+        };
+
         // Initialize scores
+        const scores = {};
         personalityTypes.forEach(type => {
             scores[type.id] = 0;
         });
 
-        // Score based on answer patterns
+        // Score based on direct answer mapping
         this.answers.forEach((answer, questionIndex) => {
-            const question = quizQuestions[questionIndex];
-            const selectedOption = question.options[answer].toLowerCase();
+            const answerKey = `${questionIndex + 1}_${answer}`;
+            const mapping = answerMapping[answerKey];
             
-            // Check each personality type's keywords
-            personalityTypes.forEach(type => {
-                type.keywords.forEach(keyword => {
-                    if (selectedOption.includes(keyword.toLowerCase())) {
-                        scores[type.id]++;
-                    }
+            if (mapping) {
+                Object.keys(mapping).forEach(personalityType => {
+                    scores[personalityType] += mapping[personalityType];
                 });
-            });
+            }
         });
 
         // Find the personality type with the highest score
