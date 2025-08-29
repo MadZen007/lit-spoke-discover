@@ -620,14 +620,13 @@ class PersonalityQuiz {
 
 // Simple share function
 function shareResults(title, description) {
-    // Create a URL with the personality type as a parameter
-    const shareUrl = `${window.location.origin}${window.location.pathname}?type=${encodeURIComponent(title)}`;
-    const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 100)}... ${shareUrl}`;
+    // Create a clean, social media-friendly message
+    const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 150)}... Take the quiz at LoveIsTough.com to discover your dating personality type!`;
     
     // Try the modern clipboard API first
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-            alert('You have now copied the link to share anywhere you like!');
+            alert('Your result has been copied! Share it on social media to let everyone know your dating personality type!');
         }).catch(() => {
             // If clipboard API fails, use fallback
             fallbackShare(text);
@@ -664,27 +663,5 @@ function fallbackShare(text) {
 
 // Initialize quiz when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if there's a personality type in the URL (from sharing)
-    const urlParams = new URLSearchParams(window.location.search);
-    const sharedType = urlParams.get('type');
-    
-    if (sharedType) {
-        // Find the personality type and show results directly
-        const personalityType = personalityTypes.find(type => type.title === sharedType);
-        if (personalityType) {
-            // Hide the quiz form and show results
-            document.querySelector('form').style.display = 'none';
-            document.querySelector('.return-home-section').style.display = 'none';
-            
-            // Create and show results
-            const quiz = new PersonalityQuiz();
-            quiz.showResults(personalityType);
-        } else {
-            // If type not found, start normal quiz
-            new PersonalityQuiz();
-        }
-    } else {
-        // Start normal quiz
-        new PersonalityQuiz();
-    }
+    new PersonalityQuiz();
 });
