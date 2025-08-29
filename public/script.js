@@ -638,13 +638,13 @@ function shareResults(title, description) {
     const cardFilename = cardMapping[title];
     const cardUrl = `https://discover.loveistough.com/images/${cardFilename}`;
     
-    // Create shareable text with the direct link to the card
-    const text = `I just discovered I'm "${title}" on LoveIsTough.com! Check out my dating personality type: ${cardUrl}`;
+    // Just copy the direct link to the static image
+    const text = cardUrl;
     
     // Try the modern clipboard API first
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-            alert('Your result card link has been copied! Share it on social media to show off your dating personality type!');
+            alert('Your personality type image link has been copied! Share it on social media!');
         }).catch(() => {
             // If clipboard API fails, use fallback
             fallbackShare(text);
@@ -668,7 +668,7 @@ function fallbackShare(text) {
     try {
         const successful = document.execCommand('copy');
         if (successful) {
-            alert('Your result card link has been copied! Share it on social media to show off your dating personality type!');
+            alert('Your personality type image link has been copied! Share it on social media!');
         } else {
             alert('Failed to copy. Please manually copy this link: ' + text);
         }
