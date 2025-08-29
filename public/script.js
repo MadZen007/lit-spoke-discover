@@ -176,7 +176,7 @@ const personalityTypes = [
     {
         id: "serial-dater",
         title: "The Serial Dater",
-        image: "images/serial-dater.jpg",
+        image: "images/serial-dater.jpeg",
         description: "You're a dating app connoisseur, always swiping right on the newest faces and chasing the thrill of the first date. You're not necessarily afraid of commitment, but you are afraid of settling for the wrong person. You believe that there's always someone better out there, and you're determined to find them (even if it means going on hundreds of mediocre dates in the process). You're the dating world's equivalent of a buffet enthusiast: always sampling everything but never quite satisfied.",
         idealPartner: "Someone who's as adventurous and open-minded as you are. They need to be comfortable with trying new things and going with the flow. Bonus points if they have a packed social calendar and are always up for a spontaneous weekend getaway.",
         redFlags: "Anyone who's overly possessive or jealous, tries to control your schedule, or expects you to be their sole source of entertainment. Also, avoid anyone who's stuck in their ways or resistant to trying new things. They'll just cramp your style and make you feel suffocated.",
@@ -248,7 +248,7 @@ const personalityTypes = [
     {
         id: "clingy-aware",
         title: "The 'Clingy But Self-Aware' Attachment Seeker",
-        image: "images/clingy.jpg",
+        image: "images/clingy.jpeg",
         description: "You know you're clingy, you embrace it, and you're probably already planning our wedding in your head (even though we haven't met yet). You're terrified of being alone, and you're not afraid to show it (maybe a little too much). You're basically the dating world's equivalent of a Velcro suit: you attach yourself to people and never let go (even when they desperately want you to).",
         idealPartner: "Someone who's patient, understanding, and genuinely enjoys receiving attention and affection. They need to be able to handle your occasional bouts of insecurity and reassure you that they're not going anywhere (even when you're being extra needy). A strong sense of self-confidence and a healthy dose of independence are also essential, as they'll need to be able to set boundaries without making you feel rejected.",
         redFlags: "Anyone who's emotionally unavailable, aloof, or commitment-phobic. Also, avoid anyone who's passive-aggressive, gaslights you, or makes you feel like your needs are a burden. They'll just trigger your abandonment issues and send you spiraling into a vortex of self-doubt and despair.",
