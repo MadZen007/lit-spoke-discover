@@ -620,13 +620,31 @@ class PersonalityQuiz {
 
 // Simple share function
 function shareResults(title, description) {
-    // Create a clean, social media-friendly message
-    const text = `I just discovered I'm "${title}" on LoveIsTough.com! ${description.substring(0, 150)}... Take the quiz at LoveIsTough.com to discover your dating personality type!`;
+    // Map personality type titles to their new static image filenames
+    const cardMapping = {
+        "The Ghosting Expert": "The Ghosting Expert.png",
+        "The Serial Dater": "serial-dater.png",
+        "The 'Netflix and Chill' Enthusiast": "netflix.png",
+        "The Conspiracy Theorist": "The-Conspiracy-Theorist.png",
+        "The 'Annoyingly Positive' Pollyanna": "pollyanna.png",
+        "The Catfishing Master": "The-catfish.png",
+        "The Reluctant Dater (Forced by Friends)": "reluctant.png",
+        "The Existential Dread-er": "Existential-Dread.png",
+        "The 'I Hate My Ex' Obsessive": "hate-my-ex.png",
+        "The 'Clingy But Self-Aware' Attachment Seeker": "Clingy.png"
+    };
+    
+    // Get the card filename for this personality type
+    const cardFilename = cardMapping[title];
+    const cardUrl = `https://discover.loveistough.com/images/${cardFilename}`;
+    
+    // Create shareable text with the direct link to the card
+    const text = `I just discovered I'm "${title}" on LoveIsTough.com! Check out my dating personality type: ${cardUrl}`;
     
     // Try the modern clipboard API first
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-            alert('Your result has been copied! Share it on social media to let everyone know your dating personality type!');
+            alert('Your result card link has been copied! Share it on social media to show off your dating personality type!');
         }).catch(() => {
             // If clipboard API fails, use fallback
             fallbackShare(text);
@@ -650,7 +668,7 @@ function fallbackShare(text) {
     try {
         const successful = document.execCommand('copy');
         if (successful) {
-            alert('You have now copied the link to share anywhere you like!');
+            alert('Your result card link has been copied! Share it on social media to show off your dating personality type!');
         } else {
             alert('Failed to copy. Please manually copy this link: ' + text);
         }
